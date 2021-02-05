@@ -17,10 +17,10 @@ Y_S_L = 21; Y_S_H = 22; Y_G_L = 23; Y_G_H = 24; C_H = 25; C_L = 26; C_D = 27;
 
 
 
-N = 330e6; %total population
+N = 800e3; %total population
 y0 = zeros(27,1); %This variable will store the initial values
 
-economy_init = 4.0803e12;
+economy_init = 50e9;
 %% Initial seed
 % We start our simulation with only a few infected individuals.
 % Then we use the values in y to define the intial conditions for our
@@ -37,10 +37,12 @@ y0 = y0/sum(y0)*N; % percent of the population
 % From 2018 American Community Survey data:
 % 23.5 percent is 60+ with a lower ability to work in an isolated state (S_L), 9.5% is 60+ with a higher ability to work in an isolated state (S_H),
 % 46.4% is under 60 (general population or non-seniors) with a lower ability to work in an isolated state (G_L), 20.5% is under 60 (general population or non-seniors) with a higher ability to work in an isolated state (G_H)
-POP_S_L = .2354;
-POP_S_H = .0953;
-POP_G_L = .464;
-POP_G_H = .2053;
+% POP_S_L = .2354;
+% POP_S_H = .0953;
+POP_S_L = .23;
+POP_S_H = .02;
+POP_G_L = .70;
+POP_G_H = .05;
 
 POP_H = POP_S_L + POP_S_H;
 POP_L = POP_G_L + POP_G_H;
@@ -56,10 +58,12 @@ LAB_G_H = .886;
 % Average income for S_H  76255.1
 % Average income for G_L  33919.6
 % Average income for G_H  79094.35
-INC_S_L = 37950.38;
-INC_S_H = 76255.1;
-INC_G_L = 33919.6;
-INC_G_H = 79094.35;
+
+income = 17500;
+INC_S_L = income;
+INC_S_H = income;
+INC_G_L = income;
+INC_G_H = income;
 
 % Average earnings for member of each group are POP_n * LAB_n * INC_n
 
@@ -110,6 +114,7 @@ rate_into_quarantine = 1; % higher number reflects a more strict enforcement of 
 
 theta = theta*0;
 theta_s = theta_s*0;
+
 
 
 
